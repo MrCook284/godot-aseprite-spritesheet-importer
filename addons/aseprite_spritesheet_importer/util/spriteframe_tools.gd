@@ -109,7 +109,7 @@ func _localize_atlas_textures() -> void:
 func _make_load_spriteframes() -> void:
 	self._named_spriteframes = {}
 	for spriteframes_name: String in self._named_spriteframes_atlas_names:
-		var sprite_frames_path: String = "%s/%s_spriteframes.tres" % [self.textures_folder, spriteframes_name]
+		var sprite_frames_path: String = "%s/%s.tres" % [self.textures_folder, spriteframes_name]
 		var sprite_frames: SpriteFrames
 		if FileAccess.file_exists(sprite_frames_path):
 			sprite_frames = load(sprite_frames_path)
@@ -119,7 +119,7 @@ func _make_load_spriteframes() -> void:
 
 func _save_spriteframes() -> Error:
 	for spriteframes_name: String in self._named_spriteframes:
-		var sprite_frames_path: String = "%s/%s_spriteframes.tres" % [self.textures_folder, spriteframes_name]
+		var sprite_frames_path: String = "%s/%s.tres" % [self.textures_folder, spriteframes_name]
 		var err: Error = ResourceSaver.save(self._named_spriteframes[spriteframes_name], sprite_frames_path)
 		gen_files.append(self._named_spriteframes[spriteframes_name])
 		if err != OK:
